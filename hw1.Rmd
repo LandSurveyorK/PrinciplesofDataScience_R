@@ -1,0 +1,119 @@
+---
+title: "STAT 1261: Principles of Data Science"
+subtitle: "Assignment 1: R and RStudio" 
+output:
+  html_document:
+    fig_height: 5
+    fig_width: 7
+  pdf_document:
+    fig_height: 5
+    fig_width: 7
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+
+```{r, setup, include=FALSE}
+library(mdsr)   # Load additional packages here 
+library(tidyr)
+library(tm)
+library(wordcloud)
+
+
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+trellis.par.set(theme=theme.mosaic()) # change default color scheme for lattice
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+
+## Instruction
+Due day: Friday, Sep. 7, 2018
+
+First read Appendix B of the textbook **Modern Data Science with R**: 
+
+Make sure you include necessary R code to show your work.
+
+Total points: 50
+
+
+## 1. Objects 
+A user has typed the following commands into the console. 
+
+#### 1) Show the value of each object and use R command to measure the length of them. (8 points)
+
+```{r}
+obj1 <- 2:10
+obj2 <- c(2, 5)
+obj3 <- c(TRUE, FALSE)
+obj4 <- 42
+```
+
+#### 2) What values are returned by the following commands? (9 points)
+
+```{r eval=FALSE}
+obj1 * 10
+obj1[2:4]
+obj1[-3]
+obj1 + obj2
+obj1 * obj3
+obj1 + obj4
+obj2 + obj3
+sum(obj2)
+sum(obj3)
+```
+
+## 2. Vectors 
+A user has typed the following commands into the console.
+
+```{r}
+a <- c(10, 15)
+b <- c(TRUE, FALSE)
+c <- c("happy", "sad")
+```
+
+What do each of the following commands return? (5 points)
+
+```{r,eval = FALSE}
+a+b
+a*b
+a+c
+d <- c(a,b);d
+e <- c(a,c);e
+```
+## 3. Errors 
+For each of the following assignment statements, describe the error (or note why it does not generate an error).(5 points)
+
+```{r, eval=FALSE}
+result1 <- sqrt 10
+result2 <-- "Hello to you!"
+3result <- "Hello to you"
+result4 <- "Hello to you
+result5 <- date()
+```
+## 4. Matrices
+
+#### 1) Create a matrix as follows by writing code (10 points)
+```{r,echo = FALSE}
+a <- seq(2,18,2)
+M1 <- matrix(a,3,3)
+print(M1)
+M2 <- matrix(a,3,3,byrow=TRUE)
+print(M2)
+```
+#### 2) Pull out the value at the 2nd row and 3rd column of M1 using R (2 points)
+
+#### 3) Pull out the value at the 3rd row and 2nd column of M2 using R (2 points)
+
+#### 4) Pull out the values in the 1st row in M1 using R (2 points)
+
+#### 5) Pull out the values in the 1st column in M2 using R (2 points)
+
+## 5.Calculate the following using R (5 points)
+#### 1) $e^{-2}$ + $e^{2}$
+#### 2) $sin(\pi/3)$+cos$(\pi/4)$
+#### 3) Round down the result of 2) to the nearest integer
+#### 4) Round up the result of 1) to the nearest integer
+#### 5) Calculate the remainder of $967/25$ using R
